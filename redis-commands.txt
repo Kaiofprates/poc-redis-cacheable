@@ -1,0 +1,92 @@
+# ========================
+# COMANDOS BÁSICOS REDIS
+# ========================
+
+# Testa se o Redis está funcionando
+PING
+# → Retorno esperado: PONG
+
+# Adiciona uma chave com valor
+SET chave valor
+# Exemplo:
+SET nome "João"
+
+# Obtém o valor de uma chave
+GET chave
+# Exemplo:
+GET nome
+
+# Verifica se uma chave existe
+EXISTS chave
+# Exemplo:
+EXISTS nome
+
+# Remove uma chave
+DEL chave
+# Exemplo:
+DEL nome
+
+# Define tempo de expiração (em segundos)
+EXPIRE chave segundos
+# Exemplo:
+EXPIRE nome 60
+
+# Tempo restante de vida da chave
+TTL chave
+# Exemplo:
+TTL nome
+
+# Lista todas as chaves (use com cuidado em produção)
+KEYS *
+# Ou com filtro:
+KEYS user:*
+
+# ========================
+# LISTAS
+# ========================
+
+# Adiciona valores a uma lista
+LPUSH minha_lista valor
+RPUSH minha_lista valor
+
+# Lê os valores da lista
+LRANGE minha_lista 0 -1
+
+# Remove e retorna o primeiro valor da lista
+LPOP minha_lista
+
+# Remove e retorna o último valor da lista
+RPOP minha_lista
+
+# ========================
+# HASHES
+# ========================
+
+# Define campos em um hash
+HSET usuario:1 nome "João" idade 30
+
+# Lê um campo do hash
+HGET usuario:1 nome
+
+# Lê todos os campos e valores
+HGETALL usuario:1
+
+# ========================
+# INFO & MONITORAMENTO
+# ========================
+
+# Ver informações gerais do Redis
+INFO
+
+# Monitora comandos em tempo real
+MONITOR
+
+# ========================
+# GERENCIAMENTO
+# ========================
+
+# Limpa todas as chaves do banco atual
+FLUSHDB
+
+# Limpa todas as chaves de todos os bancos
+FLUSHALL
